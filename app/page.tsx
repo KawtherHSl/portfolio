@@ -321,10 +321,10 @@ export default function Portfolio() {
       desc: "Spécialisation en Deep Learning, Traitement du Langage Naturel (NLP) et Vision par Ordinateur. Étude des modèles neuronaux et de l'apprentissage stochastique."
     },
     {
-      title: "Diplôme d'Ingénieur SI",
+      title: "Diplôme d'Ingénieur en Systèmes d'Information",
       date: "2019 -- 2024 / 2025",
-      school: "ENPO Maurice Audin",
-      desc: "Formation complète en informatique (Top 7% au concours national) : développement logiciel, algorithmique avancée, bases de données et gestion des SI."
+      school: "École Nationale Polytechnique d'Oran Maurice Audin",
+      desc: "Formation complète en informatique (Top 7% au concours national) : développement logiciel, algorithmique avancée, bases de données et gestion des Systèmes d'Information."
     }
   ];
 
@@ -356,7 +356,7 @@ export default function Portfolio() {
     {
       title: "Stage Space",
       short: "Plateforme de gestion de stages",
-      desc: "Application web full-stack développée pour la gestion administrative des stages des étudiants à l'ENPO. Implémentée avec une architecture robuste et une arborescence claire.",
+      desc: "Application web full-stack développée pour la gestion administrative des stages des étudiants à l'École Nationale Polytechnique d'Oran Maurice Audin. Implémentée avec une architecture robuste et une arborescence claire.",
       tech: ["HTML", "CSS", "JavaScript", "Node.js", "MongoDB"]
     }
   ];
