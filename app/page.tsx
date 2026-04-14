@@ -100,44 +100,81 @@ const Navbar = () => (
 /* ================== Chatbot ================== */
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([{ sender: 'bot', text: "Bonjour ! Je suis l'assistant IA de Kawther. Avez-vous des questions sur ses compétences, ses projets ou ses expériences ?" }]);
+  const [messages, setMessages] = useState([
+    { sender: 'bot', text: "Bonjour ! Je suis l'assistant IA de Kawther. Comment puis-je vous aider ?" }
+  ]);
   const [input, setInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
   const chatBodyRef = useRef<HTMLDivElement>(null);
+
+  const SUGGESTIONS = ["Résumé", "Projets", "Compétences", "Contact", "Alternance"];
+
+  const INTENTS = [
+    {
+      keywords: ["résumé", "resume", "qui est", "présentation", "presentation", "pitch", "parcours"],
+      response: "Kawther est une étudiante en Master 1 IA et Ingénieure en Systèmes d'Information. Elle se spécialise dans la création de solutions d'IA concrètes (Vision, NLP) avec une approche rigoureuse du développement."
+    },
+    {
+      keywords: ["expérience", "experience", "stage", "parcours professionnel", "travail"],
+      response: "Elle possède des expériences variées : de la création de datasets pour la langue des signes à l'ingénierie logicielle en méthode Scrum chez HYPROC, en passant par l'infrastructure réseau."
+    },
+    {
+      keywords: ["compétence", "competence", "langage", "skill", "techno", "maitrise", "connais", "savait"],
+      response: "Ses forces incluent le Deep Learning (PyTorch, TensorFlow), le NLP et la Vision par Ordinateur. Elle maîtrise aussi Python, Java, et les méthodologies Agiles."
+    },
+    {
+      keywords: ["projet", "réalisation", "realisation", "fait quoi", "signifyai", "pepper", "alpaga"],
+      response: "Parmi ses projets phares : SignifyAI (traduction de langue des signes), un assistant pour robot Pepper en EHPAD, et ALPAGA Vision pour la détection d'objets."
+    },
+    {
+      keywords: ["contact", "email", "mail", "tel", "téléphone", "joindre", "linkedin"],
+      response: "Vous pouvez la joindre par e-mail à halimasalemkawther@gmail.com ou par téléphone au +33 7 58 49 48 38. Son profil LinkedIn est également disponible dans la section contact."
+    },
+    {
+      keywords: ["alternance", "recherche", "dispo", "embauche", "recrute", "septembre"],
+      response: "Kawther recherche activement une alternance en Intelligence Artificielle à partir de septembre 2026. Elle est prête à s'investir dans des projets innovants et stimulants."
+    },
+    {
+        keywords: ["bonjour", "salut", "hello", "coucou", "hey"],
+        response: "Bonjour ! Je suis ravi de vous aider à découvrir le profil de Kawther. Que souhaitez-vous savoir ?"
+    },
+    {
+        keywords: ["passion", "hobby", "hobbies", "loisir", "natation", "gastronomie", "art"],
+        response: "En dehors de l'IA, Kawther pratique la natation dynamique, se passionne pour la gastronomie du monde et s'intéresse au stylisme et aux arts visuels."
+    }
+  ];
 
   useEffect(() => {
     if (chatBodyRef.current) {
       chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
     }
-  }, [messages, isOpen]);
+  }, [messages, isOpen, isTyping]);
 
-  const handleSend = () => {
-    if (!input.trim()) return;
-    const userMsg = input.trim();
-    setMessages(prev => [...prev, { sender: 'user', text: userMsg }]);
-    setInput('');
+  const processMessage = (text: string) => {
+    const lower = text.toLowerCase();
+    setIsTyping(true);
 
     setTimeout(() => {
-      let botResponse = "Je n'ai pas bien compris. Pouvez-vous reformuler ? (Essayez avec : expérience, compétences, projets, contact, alternance)";
-      const lower = userMsg.toLowerCase();
+      let botResponse = "Je ne suis pas sûr de bien comprendre. Je peux vous parler de son [Résumé], de ses [Projets] ou de ses [Compétences].";
       
-      if (lower.includes("expérience") || lower.includes("experience") || lower.includes("stage")) {
-        botResponse = "Forte d'une expérience concrète, Kawther a notamment construit un dataset ciblé sur la langue des signes et a modélisé des architectures web backend solides en mode Scrum.";
-      } else if (lower.includes("compétence") || lower.includes("competence") || lower.includes("langage") || lower.includes("skill")) {
-        botResponse = "C'est une véritable architecte de données ! Elle manipule Python ou Java d'une main, et forge des modèles IA robustes (PyTorch, TensorFlow, Transformers) de l'autre.";
-      } else if (lower.includes("projet") || lower.includes("realisation")) {
-        botResponse = "Elle est créatrice de SignifyAI (traduction innovante de signes) mais aussi familière avec la robotique interactive (Pepper) et l'automatisation de tâches de fond.";
-      } else if (lower.includes("contact") || lower.includes("email") || lower.includes("mail") || lower.includes("tel")) {
-        botResponse = "Vous pouvez l'appeler au +33 758 494 838 ou lui écrire à halimasalemkawther@gmail.com !";
-      } else if (lower.includes("bonjour") || lower.includes("salut") || lower.includes("hello")) {
-        botResponse = "Prenez le temps d'explorer l'univers IA de Kawther. Que désirez-vous découvrir ?";
-      } else if (lower.includes("alternance") || lower.includes("recherche") || lower.includes("dispo")) {
-        botResponse = "Absolument ! Kawther est disponible à partir de septembre 2026 pour rejoindre une équipe audacieuse en tant qu'alternante IA.";
-      } else if (lower.includes("formation") || lower.includes("etude") || lower.includes("master")) {
-        botResponse = "Dotée d'un bagage solide en Systèmes d'Information (Ingénieure ENPO), elle spécialise aujourd'hui sa pensée analytique à l'Université d'Avignon (Master 1 IA).";
+      for (const intent of INTENTS) {
+        if (intent.keywords.some(k => lower.includes(k))) {
+          botResponse = intent.response;
+          break;
+        }
       }
       
       setMessages(prev => [...prev, { sender: 'bot', text: botResponse }]);
-    }, 600);
+      setIsTyping(false);
+    }, 800);
+  };
+
+  const handleSend = () => {
+    if (!input.trim() || isTyping) return;
+    const userMsg = input.trim();
+    setMessages(prev => [...prev, { sender: 'user', text: userMsg }]);
+    setInput('');
+    processMessage(userMsg);
   };
 
   return (
@@ -156,10 +193,41 @@ const Chatbot = () => {
                   {m.text}
                 </div>
               ))}
+              
+              {isTyping && (
+                <div className="chat-bubble bot typing">
+                  <span>.</span><span>.</span><span>.</span>
+                </div>
+              )}
+
+              {!isTyping && (
+                <div className="flex" style={{ gap: "8px", flexWrap: "wrap", marginTop: "12px" }}>
+                  {SUGGESTIONS.map((s, i) => (
+                    <button 
+                        key={i} 
+                        onClick={() => {
+                            setMessages(prev => [...prev, { sender: 'user', text: s }]);
+                            processMessage(s);
+                        }}
+                        className="badge" 
+                        style={{ cursor: "pointer", border: "1px solid var(--border-light)", background: "rgba(255,255,255,0.05)" }}
+                    >
+                        {s}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="chat-input-wrapper">
-              <input type="text" placeholder="Posez votre question..." value={input} onChange={(e)=>setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSend()} />
-              <button onClick={handleSend}>&rarr;</button>
+              <input 
+                type="text" 
+                placeholder="Posez votre question..." 
+                value={input} 
+                onChange={(e)=>setInput(e.target.value)} 
+                onKeyDown={(e) => e.key === 'Enter' && handleSend()} 
+                disabled={isTyping}
+              />
+              <button onClick={handleSend} disabled={isTyping}>&rarr;</button>
             </div>
           </motion.div>
         )}
