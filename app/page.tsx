@@ -383,13 +383,13 @@ export default function Portfolio() {
               <motion.div key={`ml-${i}`} className="glass-panel" style={{ padding: "8px 16px", color: "white", fontSize: "0.95rem" }}>{s}</motion.div>
             ))}
             
-            <h3 style={{ width: "100%", textAlign: "center", margin: "16px 0 8px", fontSize: "1.2rem", color: "white" }}>Langages de Programmation</h3>
-            {["Python", "Java", "C", "SQL", "JavaScript"].map((s, i) => (
+            <h3 style={{ width: "100%", textAlign: "center", margin: "16px 0 8px", fontSize: "1.2rem", color: "white" }}>Langages</h3>
+            {["Python", "Java", "C", "JavaScript"].map((s, i) => (
               <motion.div key={`lang-${i}`} className="glass-panel" style={{ padding: "8px 16px", color: "var(--text-accent)", fontSize: "0.95rem" }}>{s}</motion.div>
             ))}
 
             <h3 style={{ width: "100%", textAlign: "center", margin: "16px 0 8px", fontSize: "1.2rem", color: "white" }}>Bases de données, Web & DataViz</h3>
-            {["Oracle", "PostgreSQL", "MongoDB", "NodeJS", "Express", "Power BI"].map((s, i) => (
+            {["SQL", "Oracle", "PostgreSQL", "MongoDB", "NodeJS", "Express", "Power BI"].map((s, i) => (
               <motion.div key={`db-${i}`} className="glass-panel" style={{ padding: "8px 16px", color: "white", fontSize: "0.95rem" }}>{s}</motion.div>
             ))}
 
