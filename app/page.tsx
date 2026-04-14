@@ -305,20 +305,25 @@ export default function Portfolio() {
         <section id="about" className="hero">
           <div className="container" style={{ position: "relative", zIndex: 10 }}>
             <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} style={{ display: "inline-block", marginBottom: "20px" }}>
-              <span className="badge">Recherche Alternance IA - Sept. 2026</span>
+              <span className="badge">Alternance en Intelligence Artificielle – Septembre 2026</span>
             </motion.div>
             
             <motion.h1 className="hero-title animate-fade-up">
-              Je suis <span style={{ color: "var(--text-accent)" }}>Kawther Halima Salem</span>
+              Kawther <span style={{ color: "var(--text-accent)" }}>Halima Salem</span>
             </motion.h1>
             
-            <motion.p className="hero-subtitle" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8 }}>
-              Étudiante en Master 1 IA et Ingénieure diplômée en SI. Je développe des modèles d'apprentissage automatique et des solutions d'intelligence artificielle pour résoudre des problèmes concrets.
-            </motion.p>
+            <motion.div className="hero-subtitle" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8 }}>
+              <div style={{ color: "var(--text-main)", fontWeight: 600, marginBottom: "12px", fontSize: "1.1rem" }}>
+                Étudiante en Master 1 IA | Ingénieure en Systèmes d’Information
+              </div>
+              <div style={{ fontSize: "1.1rem", lineHeight: "1.6" }}>
+                Je conçois des solutions d’intelligence artificielle orientées résultats, avec une approche rigoureuse de la modélisation et du développement.
+              </div>
+            </motion.div>
             
             <motion.div className="flex justify-center gap-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.8 }}>
               <a href="#experiences" className="btn-primary">Mon Parcours</a>
-              <a href="#contact" className="btn-secondary">Me contacter</a>
+              <a href="#contact" className="btn-secondary">Contact</a>
             </motion.div>
           </div>
         </section>
@@ -326,7 +331,7 @@ export default function Portfolio() {
         {/* PARCOURS SECTION */}
         <section id="experiences" className="section container">
           <motion.h2 className="section-title" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            Parcours & Évolution
+            Parcours
           </motion.h2>
           
           <ParcoursInteractive formations={formations} experiences={experiences} />
@@ -336,7 +341,7 @@ export default function Portfolio() {
         {/* PROJECTS SECTION */}
         <section id="projects" className="section container">
           <motion.h2 className="section-title" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            Projets Sélectifs
+            Projets
           </motion.h2>
           
           <div className="grid grid-cols-2">
@@ -369,35 +374,40 @@ export default function Portfolio() {
         {/* SKILLS SECTION */}
         <section id="skills" className="section container">
           <motion.h2 className="section-title" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            Boîte à Outils
+            Compétences
           </motion.h2>
           
-          <div className="flex justify-center" style={{ flexWrap: "wrap", gap: "16px", maxWidth: "900px", margin: "0 auto" }}>
-            <h3 style={{ width: "100%", textAlign: "center", marginBottom: "10px", fontSize: "1.2rem", color: "white" }}>IA & Modélisation Complèxe</h3>
+          <div className="flex justify-center" style={{ flexWrap: "wrap", gap: "12px", maxWidth: "1000px", margin: "0 auto" }}>
+            <h3 style={{ width: "100%", textAlign: "center", marginBottom: "8px", fontSize: "1.2rem", color: "white" }}>ML / IA</h3>
             {["TensorFlow", "Keras", "PyTorch", "Scikit-learn", "HuggingFace Transformers", "YOLOv8", "Pandas", "NumPy", "OpenCV", "Mediapipe"].map((s, i) => (
-              <motion.div key={`ml-${i}`} className="glass-panel" style={{ padding: "10px 20px", color: "white" }}>{s}</motion.div>
+              <motion.div key={`ml-${i}`} className="glass-panel" style={{ padding: "8px 16px", color: "white", fontSize: "0.95rem" }}>{s}</motion.div>
             ))}
             
-            <h3 style={{ width: "100%", textAlign: "center", margin: "20px 0 10px", fontSize: "1.2rem", color: "white" }}>Écosystèmes Dev & Cœur Tech</h3>
-            {["Python", "Java", "C", "JavaScript", "SQL", "NodeJS", "Express", "Oracle", "PostgreSQL", "MongoDB"].map((s, i) => (
-              <motion.div key={`web-${i}`} className="glass-panel" style={{ padding: "10px 20px", color: "var(--text-accent)" }}>{s}</motion.div>
+            <h3 style={{ width: "100%", textAlign: "center", margin: "16px 0 8px", fontSize: "1.2rem", color: "white" }}>Langages de Programmation</h3>
+            {["Python", "Java", "C", "SQL", "JavaScript"].map((s, i) => (
+              <motion.div key={`lang-${i}`} className="glass-panel" style={{ padding: "8px 16px", color: "var(--text-accent)", fontSize: "0.95rem" }}>{s}</motion.div>
             ))}
 
-            <h3 style={{ width: "100%", textAlign: "center", margin: "20px 0 10px", fontSize: "1.2rem", color: "white" }}>Opérations & Best Practices</h3>
-            {["Scrum", "Agile", "ITIL", "UML", "Merise", "Git", "Linux", "Jupyter", "Power BI"].map((s, i) => (
-              <motion.div key={`tools-${i}`} className="glass-panel" style={{ padding: "10px 20px", color: "var(--text-muted)" }}>{s}</motion.div>
+            <h3 style={{ width: "100%", textAlign: "center", margin: "16px 0 8px", fontSize: "1.2rem", color: "white" }}>Bases de données, Web & DataViz</h3>
+            {["Oracle", "PostgreSQL", "MongoDB", "NodeJS", "Express", "Power BI"].map((s, i) => (
+              <motion.div key={`db-${i}`} className="glass-panel" style={{ padding: "8px 16px", color: "white", fontSize: "0.95rem" }}>{s}</motion.div>
+            ))}
+
+            <h3 style={{ width: "100%", textAlign: "center", margin: "16px 0 8px", fontSize: "1.2rem", color: "white" }}>Outils, Modélisation & Méthodes</h3>
+            {["Git", "Linux", "Jupyter", "Docker", "UML", "Merise", "BPMN", "Scrum", "Agile", "ITIL"].map((s, i) => (
+              <motion.div key={`tools-${i}`} className="glass-panel" style={{ padding: "8px 16px", color: "var(--text-muted)", fontSize: "0.95rem" }}>{s}</motion.div>
             ))}
           </div>
         </section>
 
         {/* INFO SECTION */}
         <section className="section container">
-          <div className="grid grid-cols-3" style={{ gap: "30px" }}>
+          <div className="grid grid-cols-2" style={{ gap: "30px", maxWidth: "800px", margin: "0 auto" }}>
             {/* Languages */}
             <motion.div className="glass-panel" style={{ padding: "30px" }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <h3 style={{ fontSize: "1.5rem", marginBottom: "20px", color: "white" }}>Langues</h3>
               <div className="flex flex-col gap-4">
-                {[{ name: "Arabe", lvl: "Native" }, { name: "Français", lvl: "D'Excellence" }, { name: "Anglais", lvl: "Force Professionnelle" }].map((l, i) => (
+                {[{ name: "Arabe", lvl: "Natif" }, { name: "Français", lvl: "Avancé" }, { name: "Anglais", lvl: "Professionnel" }].map((l, i) => (
                   <div key={i} className="flex flex-col" style={{ paddingBottom: "12px", borderBottom: "1px solid var(--border-light)" }}>
                     <span style={{ fontSize: "1.1rem", fontWeight: 500 }}>{l.name}</span>
                     <span style={{ color: "var(--text-accent)", fontSize: "0.85rem" }}>{l.lvl}</span>
@@ -408,23 +418,22 @@ export default function Portfolio() {
 
             {/* Extras */}
             <motion.div className="glass-panel" style={{ padding: "30px" }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} viewport={{ once: true }}>
-              <h3 style={{ fontSize: "1.5rem", marginBottom: "20px", color: "white" }}>Esprit Associatif</h3>
-              <p style={{ fontSize: "0.95rem", color: "var(--text-muted)", marginBottom: "16px" }}>Mon envie d'impacter et de me cultiver ne s'arrête pas au code :</p>
+              <h3 style={{ fontSize: "1.5rem", margin: "0 0 12px 0", color: "white" }}>Engagement</h3>
               
-              <h4 style={{ color: "white", marginBottom: "4px" }}>Club BERRY</h4>
-              <p style={{ fontSize: "0.85rem", color: "var(--text-accent)", marginBottom: "16px" }}>Pôle d'informatique, focus sur la cybersécurité et le dev.</p>
+              <div style={{ margin: "0 0 12px 0" }}>
+                <div style={{ color: "white", fontWeight: 600, display: "flex", justifyContent: "space-between", alignItems: "center", margin: "0 0 2px 0" }}>
+                  <span>BERRY — Club Informatique</span>
+                  <span style={{ fontSize: "0.85rem", color: "var(--text-muted)", fontWeight: "normal" }}>2022 -- 2024</span>
+                </div>
+                <div style={{ fontSize: "0.9rem", color: "var(--text-accent)", margin: 0 }}>Design, cybersécurité, développement web / mobile.</div>
+              </div>
               
-              <h4 style={{ color: "white", marginBottom: "4px" }}>Club CREATIVUM</h4>
-              <p style={{ fontSize: "0.85rem", color: "var(--text-accent)" }}>Pôle Culturel, organisation de débats et d'ateliers créatifs.</p>
-            </motion.div>
-
-            {/* Interests */}
-            <motion.div className="glass-panel" style={{ padding: "30px" }} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} viewport={{ once: true }}>
-              <h3 style={{ fontSize: "1.5rem", marginBottom: "20px", color: "white" }}>Mes Horizons</h3>
-              <div className="flex flex-col gap-3">
-                {["Natation dynamique", "Gastronomie du monde", "Stylisme et Art visuel", "Exploration internationale"].map((c, i) => (
-                  <div key={i} className="badge" style={{ padding: "10px 16px", fontSize: "0.9rem", textAlign: "left", width: "100%" }}>{c}</div>
-                ))}
+              <div style={{ margin: 0 }}>
+                <div style={{ color: "white", fontWeight: 600, display: "flex", justifyContent: "space-between", alignItems: "center", margin: "0 0 2px 0" }}>
+                  <span>CREATIVUM — Club Culturel</span>
+                  <span style={{ fontSize: "0.85rem", color: "var(--text-muted)", fontWeight: "normal" }}>2019 -- 2020</span>
+                </div>
+                <div style={{ fontSize: "0.9rem", color: "var(--text-accent)", margin: 0 }}>Ateliers, événements artistiques, débats.</div>
               </div>
             </motion.div>
           </div>
@@ -439,15 +448,15 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }} 
             viewport={{ once: true }}
           >
-            <h2 style={{ fontSize: "3rem", fontWeight: 700, color: "white", marginBottom: "16px" }}>Lançons les Calculs Ensemble</h2>
-            <p style={{ fontSize: "1.2rem", color: "var(--text-muted)", maxWidth: "600px", marginBottom: "40px", lineHeight: "1.6" }}>
-              Je suis en quête active d'une structure passionnante pour une alternance IA ! Si mon profil fait écho à vos besoins, je serais ravie d'en discuter de vive voix.
+            <h2 style={{ fontSize: "3rem", fontWeight: 700, color: "white", marginBottom: "16px" }}>Contact</h2>
+            <p style={{ fontSize: "1.2rem", color: "var(--text-muted)", maxWidth: "800px", marginBottom: "40px", lineHeight: "1.6" }}>
+              Disponible pour une alternance en intelligence artificielle à partir de septembre 2026, je suis ouverte à toute opportunité me permettant de contribuer à des projets innovants.
             </p>
             
             <div className="flex gap-4" style={{ flexWrap: "wrap", justifyContent: "center" }}>
-              <a href="mailto:halimasalemkawther@gmail.com" className="btn-primary">M'écrire un Email</a>
-              <a href="tel:+33758494838" className="btn-secondary" style={{ backgroundColor: "rgba(255,255,255,0.05)" }}>Appeler (+33 758 494 838)</a>
-              <a href="https://www.linkedin.com/in/kawther-halima-salem-82538925a/" target="_blank" rel="noreferrer" className="btn-secondary">Mon profil LinkedIn</a>
+              <a href="mailto:halimasalemkawther@gmail.com" className="btn-primary">Email</a>
+              <a href="tel:+33758494838" className="btn-secondary" style={{ backgroundColor: "rgba(255,255,255,0.05)" }}>Téléphone</a>
+              <a href="https://www.linkedin.com/in/kawther-halima-salem-82538925a/" target="_blank" rel="noreferrer" className="btn-secondary">LinkedIn</a>
             </div>
           </motion.div>
         </section>
