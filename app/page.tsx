@@ -323,7 +323,7 @@ export default function Portfolio() {
     {
       title: "Diplôme d'Ingénieur en Systèmes d'Information",
       date: "2019 -- 2024 / 2025",
-      school: "École Nationale Polytechnique d'Oran Maurice Audin",
+      school: "École Nationale Polytechnique d'Oran Maurice Audin, Algérie",
       desc: "Formation complète en informatique (Top 7% au concours national) : développement logiciel, algorithmique avancée, bases de données et gestion des Systèmes d'Information."
     }
   ];
@@ -356,7 +356,7 @@ export default function Portfolio() {
     {
       title: "Stage Space",
       short: "Plateforme de gestion de stages",
-      desc: "Application web full-stack développée pour la gestion administrative des stages des étudiants à l'École Nationale Polytechnique d'Oran Maurice Audin. Implémentée avec une architecture robuste et une arborescence claire.",
+      desc: "Application web full-stack développée pour la gestion administrative des stages des étudiants à l'École Nationale Polytechnique d'Oran Maurice Audin, Algérie. Implémentée avec une architecture robuste et une arborescence claire.",
       tech: ["HTML", "CSS", "JavaScript", "Node.js", "MongoDB"]
     }
   ];
@@ -382,7 +382,7 @@ export default function Portfolio() {
             
             <motion.div className="hero-subtitle" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8 }}>
               <div style={{ color: "var(--text-main)", fontWeight: 600, marginBottom: "12px", fontSize: "1.1rem" }}>
-                Étudiante en Master 1 IA | Ingénieure en Systèmes d’Information
+                Étudiante en Master 1 Intelligence artificielle | Ingénieure en Systèmes d’Information
               </div>
               <div style={{ fontSize: "1.1rem", lineHeight: "1.6" }}>
                 Je conçois des solutions d’intelligence artificielle orientées résultats, avec une approche rigoureuse de la modélisation et du développement.
