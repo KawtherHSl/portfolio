@@ -209,7 +209,35 @@ p {
   justify-content: center;
   text-align: center;
   position: relative;
-  padding-top: 80px;
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+
+.hero-avatar-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 24px auto;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #7c3aed 0%, #2563eb 50%, #a78bfa 100%);
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.45);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-avatar-wrapper:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 40px rgba(167, 139, 250, 0.7);
+}
+
+.hero-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  border: 3px solid #07090E;
+  display: block;
 }
 
 .hero-title {

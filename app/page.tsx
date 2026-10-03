@@ -372,7 +372,20 @@ export default function Portfolio() {
         {/* HERO SECTION */}
         <section id="about" className="hero">
           <div className="container" style={{ position: "relative", zIndex: 10 }}>
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} style={{ display: "inline-block", marginBottom: "20px" }}>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }} 
+              animate={{ opacity: 1, scale: 1 }} 
+              transition={{ duration: 0.8 }}
+              className="hero-avatar-wrapper"
+            >
+              <img 
+                src="avatar.jpg" 
+                alt="Kawther Halima Salem" 
+                className="hero-avatar-img"
+              />
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} style={{ display: "inline-block", marginBottom: "20px" }}>
               <span className="badge">Alternance en Intelligence Artificielle – Septembre 2026</span>
             </motion.div>
             
